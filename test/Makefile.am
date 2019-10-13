@@ -23,5 +23,4 @@ AM_MPI_LOG_FLAGS = -np 2
 
 TESTS =
 
-
 TESTS += io_test
