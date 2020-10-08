@@ -17,7 +17,7 @@ CLEANFILES += tmp_io_test.octbin.gz tmp_io_test.octbin
 io_test_par_mpi_SOURCES =  io_test_par.cpp
 io_test_par_mpi_CPPFLAGS =  $(AM_CPPFLAGS)
 io_test_par_mpi_LDADD = $(BIMLIB) $(BIMIOLIB)
-CLEANFILES += tmp_io_test.octbin.gz
+CLEANFILES += tmp_io_test_par.octbin.gz tmp_io_test_par.octbin
 
 TEST_EXTENSIONS = .m .sh .mpi
 M_LOG_COMPILER = octave

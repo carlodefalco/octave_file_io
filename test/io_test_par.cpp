@@ -68,14 +68,14 @@ int main (int argc, char **argv)
       the_map.assign ("n", oct_n);
       
       octave_io_mode m = gz_write_mode;
-      assert (octave_io_open ("tmp_io_test.octbin", m, &m) == 0);
+      assert (octave_io_open ("tmp_io_test_par.octbin", m, &m) == 0);
       assert (octave_save ("the_map", octave_value (the_map)) == 0);
       assert (octave_io_close () == 0);
       
       // load data from file and print
       octave_value tmp;
       m = gz_read_mode;
-      assert (octave_io_open ("tmp_io_test.octbin.gz", m, &m) == 0);
+      assert (octave_io_open ("tmp_io_test_par.octbin.gz", m, &m) == 0);
       assert (octave_load ("the_map", tmp) == 0);
       ColumnVector x_new = tmp.scalar_map_value ().contents ("x").column_vector_value ();
       Array<octave_idx_type> n_new = tmp.scalar_map_value ().contents ("n").column_vector_value ();
