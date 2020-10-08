@@ -45,28 +45,5 @@ octave_save (const char*, const octave_value&);
 int
 octave_clear (void);
 
-class octave_file_io_intf {
-  
-public:
-
-  static octave_file_io_intf* get_instance () {
-    static octave_file_io_intf instance;
-    return &instance;
-  }
-  
-  octave_file_io_intf (octave_file_io_intf const&) = delete;
-  void operator=(octave_file_io_intf const&)  = delete;
-  
-  octave::interpreter *interp;
-  std::string filename;
-  octave_io_mode current_mode;
-  octave_value_list in, out;
-  
-private:
-
-  ~octave_file_io_intf ();
-  octave_file_io_intf ();
-  
-};
 
 #endif

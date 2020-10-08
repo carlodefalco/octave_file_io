@@ -10,9 +10,7 @@
   \brief Classes and methods for files in Octave's (compressed) native binary file format
 */
 
-// FIXME: This is a workaround for a problem introduced in Octave > 4.2
-#define HAVE_ZLIB
-
+#include <iostream>
 #include <octave/oct.h>
 #include <octave/octave.h>
 #include <octave/parse.h>
@@ -55,6 +53,34 @@ fexists (const std::string& fname)
 //                Singleton class
 //---------------------------------------------------------------------
 
+class octave_file_io_intf {
+  
+public:
+
+  static octave_file_io_intf* get_instance () {
+    static octave_file_io_intf instance;
+    return &instance;
+  }
+  
+  octave_file_io_intf (octave_file_io_intf const&) = delete;
+  void operator=(octave_file_io_intf const&)  = delete;
+  
+  octave::interpreter *interp;
+  std::string filename;
+  octave_io_mode current_mode;
+  octave_value_list in, out;
+  
+private:
+
+  ~octave_file_io_intf ();
+  octave_file_io_intf ();
+  
+};
+
+//---------------------------------------------------------------------
+//                Methods in the singleton class
+//---------------------------------------------------------------------
+
 /// Singleton class providing an interface to Octave file I/O.
 octave_file_io_intf::octave_file_io_intf ()  
 {
@@ -72,13 +98,6 @@ octave_file_io_intf::~octave_file_io_intf ()
   //interp->shutdown ();
   //delete interp;
 }
-
-
-//---------------------------------------------------------------------
-//                Methods in the singleton class
-//---------------------------------------------------------------------
-
-
 
 //---------------------------------------------------------------------
 //       Main API Functions 
