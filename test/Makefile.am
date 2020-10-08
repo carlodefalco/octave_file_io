@@ -7,11 +7,16 @@ AUTOMAKE_OPTIONS = nostdinc
 
 CLEANFILES = 
 
-check_PROGRAMS = io_test 
+check_PROGRAMS = io_test io_test_par.mpi
 
 io_test_SOURCES =  io_test.cpp
 io_test_CPPFLAGS =  $(AM_CPPFLAGS)
 io_test_LDADD = $(BIMLIB) $(BIMIOLIB)
+CLEANFILES += tmp_io_test.octbin.gz tmp_io_test.octbin
+
+io_test_par_mpi_SOURCES =  io_test_par.cpp
+io_test_par_mpi_CPPFLAGS =  $(AM_CPPFLAGS)
+io_test_par_mpi_LDADD = $(BIMLIB) $(BIMIOLIB)
 CLEANFILES += tmp_io_test.octbin.gz
 
 TEST_EXTENSIONS = .m .sh .mpi
@@ -23,4 +28,4 @@ AM_MPI_LOG_FLAGS = -np 2
 
 TESTS =
 
-TESTS += io_test
+TESTS += io_test io_test_par.mpi

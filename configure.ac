@@ -2,7 +2,8 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([octave_file_io], [0.0.0], [carlo.defalco@polimi.it])
+AC_INIT([octave_file_io], [1.0.90], [carlo.defalco@polimi.it])
+AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SRCDIR([src/octave_file_io.cpp])
 AC_CONFIG_HEADERS([src/ofio_config.h])
 
