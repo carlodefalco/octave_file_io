@@ -4,9 +4,8 @@
   the terms of the GNU/GPL licence v3
 */
 
-//#include <mpi.h>
+#include <iostream>
 #include <octave_file_io.h>
-#include <octave/parse.h>
 #include <cassert>
 
 int

@@ -7,7 +7,7 @@
 #ifndef OCTAVE_FILE_IO_H
 # define OCTAVE_FILE_IO_H
 
-
+#include <octave/oct.h>
 
 //---------------------------------------------------------------------
 //                Singleton class

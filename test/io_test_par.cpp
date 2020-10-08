@@ -5,9 +5,12 @@
 */
 
 #include <mpi.h>
+#include <iostream>
+
 #include <octave_file_io.h>
 #include <octave_file_io_timing.h>
 #include <cassert>
+
 #define OFIO_TIMING
 int main (int argc, char **argv)
 {

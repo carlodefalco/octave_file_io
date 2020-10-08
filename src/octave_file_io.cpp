@@ -11,8 +11,6 @@
 */
 
 #include <iostream>
-#include <octave/oct.h>
-#include <octave/octave.h>
 #include <octave/parse.h>
 #include <octave/load-save.h>
 #include <octave/builtin-defun-decls.h>
@@ -28,7 +26,7 @@ check_gzip_magic (const std::string& fname)
 {
   bool retval = false;
   std::ifstream file (fname.c_str ());
-  OCTAVE_LOCAL_BUFFER (unsigned char, magic, 2);
+  unsigned char magic[2];
 
   if (file.read (reinterpret_cast<char *> (magic), 2) 
       && magic[0] == 0x1f 
