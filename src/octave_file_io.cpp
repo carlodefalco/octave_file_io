@@ -147,6 +147,7 @@ octave_io_close (void)
     {
       io_intf->in(0) = io_intf->filename;
       io_intf->interp->feval ("gzip", io_intf->in);
+      io_intf->interp->feval ("delete", io_intf->in);
       io_intf->in.clear ();
     }
   return 0;
